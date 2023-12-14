@@ -15,5 +15,29 @@ function getComputersChoice() {
 }
 
 function getUsersChoice() {
-  return prompt("Rock, Paper or Scissor ?");
+  let usersChoice = prompt("Rock, Paper or Scissor ?");
+  let rockRegex = /rock/i;
+  let paperRegex = /paper/i;
+  let scissorRegex = /scissor/i;
+
+  //if users closes promt
+  if (!usersChoice) {
+    // tell user to enter value once again
+    usersChoice = getUsersChoice();
+  }
+
+  // if user inputs invalid input
+  if (
+    !(
+      usersChoice.search(rockRegex) >= 0 ||
+      usersChoice.search(paperRegex) >= 0 ||
+      usersChoice.search(scissorRegex) >= 0
+    )
+  ) {
+    alert("Invalid Input");
+    // tell user to enter value once again
+    usersChoice = getUsersChoice();
+  }
+
+  return usersChoice;
 }
