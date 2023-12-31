@@ -10,17 +10,11 @@ function getComputersChoice() {
   // returns random number between 0 - 3
   let choice = Math.trunc(Math.random() * 3);
 
-  //   each number between 0 - 3 is mapped with rock, paper and scissor
-  //   the random number determines which options gets returned
-  // no break is used cause return exits the function itself
-  switch (choice) {
-    case 0:
-      return "rock";
-    case 1:
-      return "paper";
-    case 2:
-      return "scissor";
-  }
+  //   each number between 0 - 3 is mapped with index of option array that contains rock, paper and scissor
+  //   the random number determines which option index value gets returned
+  const options = ["rock", "paper", "scissor"];
+
+  return options[choice];
 }
 
 function getUsersChoice() {
@@ -129,34 +123,34 @@ function match() {
   return winner;
 }
 
-function bestOfFive() {
-  let usersPoint;
-  let computersPoint;
-  usersPoint = computersPoint = 0;
-  let winner = null;
+// function bestOfFive() {
+//   let usersPoint;
+//   let computersPoint;
+//   usersPoint = computersPoint = 0;
+//   let winner = null;
 
-  // play match endlessly
-  while (true) {
-    winner = match();
-    // for each match winner's point is increased by 1
-    if (winner === USER) usersPoint++;
-    else if (winner === COMPUTER) computersPoint++;
+//   // play match endlessly
+//   while (true) {
+//     winner = match();
+//     // for each match winner's point is increased by 1
+//     if (winner === USER) usersPoint++;
+//     else if (winner === COMPUTER) computersPoint++;
 
-    // if any of the player wins 3 times or more end the game
+//     // if any of the player wins 3 times or more end the game
 
-    // if user wins
-    if (usersPoint >= 3) {
-      winner = USER;
-      displayWinner(winner, usersPoint, computersPoint);
-      break;
-    }
-    // if computer wins
-    else if (computersPoint >= 3) {
-      winner = COMPUTER;
-      displayWinner(winner, usersPoint, computersPoint);
-      break;
-    }
-  }
-}
+//     // if user wins
+//     if (usersPoint >= 3) {
+//       winner = USER;
+//       displayWinner(winner, usersPoint, computersPoint);
+//       break;
+//     }
+//     // if computer wins
+//     else if (computersPoint >= 3) {
+//       winner = COMPUTER;
+//       displayWinner(winner, usersPoint, computersPoint);
+//       break;
+//     }
+//   }
+// }
 
-bestOfFive();
+// match();
