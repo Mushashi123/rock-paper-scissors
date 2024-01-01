@@ -123,34 +123,74 @@ function match() {
   return winner;
 }
 
-// function bestOfFive() {
-//   let usersPoint;
-//   let computersPoint;
-//   usersPoint = computersPoint = 0;
-//   let winner = null;
+function bestOfFive() {
+  let usersPoint;
+  let computersPoint;
+  usersPoint = computersPoint = 0;
+  let winner = null;
 
-//   // play match endlessly
-//   while (true) {
-//     winner = match();
-//     // for each match winner's point is increased by 1
-//     if (winner === USER) usersPoint++;
-//     else if (winner === COMPUTER) computersPoint++;
+  // play match endlessly
+  while (true) {
+    winner = match();
+    // for each match winner's point is increased by 1
+    if (winner === USER) usersPoint++;
+    else if (winner === COMPUTER) computersPoint++;
 
-//     // if any of the player wins 3 times or more end the game
+    // if any of the player wins 3 times or more end the game
 
-//     // if user wins
-//     if (usersPoint >= 3) {
-//       winner = USER;
-//       displayWinner(winner, usersPoint, computersPoint);
-//       break;
-//     }
-//     // if computer wins
-//     else if (computersPoint >= 3) {
-//       winner = COMPUTER;
-//       displayWinner(winner, usersPoint, computersPoint);
-//       break;
-//     }
-//   }
-// }
+    // if user wins
+    if (usersPoint >= 3) {
+      winner = USER;
+      displayWinner(winner, usersPoint, computersPoint);
+      break;
+    }
+    // if computer wins
+    else if (computersPoint >= 3) {
+      winner = COMPUTER;
+      displayWinner(winner, usersPoint, computersPoint);
+      break;
+    }
+  }
+}
 
-// match();
+// || UI related
+
+// flickering (computer thinking)
+
+function preLoadImages(imageLinks) {
+  const preLoadedImages = [];
+
+  for (const imageLink of imageLinks) {
+    const img = new Image();
+    img.src = imageLink;
+    img.classList.add("computer-choice__img");
+    preLoadedImages.push(img);
+  }
+
+  return preLoadedImages;
+}
+
+function computerThinking() {
+  const weaponImages = [
+    "/images/quick-hands/rock2.svg",
+    "/images/quick-hands/paper2.svg",
+    "/images/quick-hands/scissor2.svg",
+  ];
+  const computerChoice = document.querySelector(".computer-choice");
+
+  const loadedWeaponImages = preLoadImages(weaponImages);
+
+  const intervalId = setInterval(() => {
+    const random = Math.trunc(Math.random() * 3);
+    // remove previous image
+    while ((firstChild = computerChoice.firstChild)) {
+      computerChoice.removeChild(firstChild);
+    }
+    // add new image
+    computerChoice.appendChild(loadedWeaponImages[random]);
+  }, 50);
+
+  return intervalId;
+}
+
+computerThinking();

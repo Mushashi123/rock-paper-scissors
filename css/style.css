@@ -13,8 +13,8 @@ html {
 }
 
 body {
-  height: 100vh;
   font-family: "Roboto", sans-serif;
+  height: 100vh;
 }
 
 a {
@@ -22,8 +22,8 @@ a {
 }
 
 button {
-  border: none;
   background-color: transparent;
+  border: none;
   cursor: pointer;
 }
 
@@ -32,104 +32,135 @@ main {
   width: 100%;
 }
 
-main > .container {
+/* || Home (index.html)  */
+
+.home {
+  background-color: #9c27b0;
+  text-align: center;
+}
+
+.home > .container {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
   height: 100%;
+  justify-content: space-around;
 }
 
-/* || Hero (index.html)  */
-
-.hero {
-  background-color: #9c27b0;
-}
-
-.hero__heading {
-  font-weight: 100;
-  font-size: 2.5rem;
-  text-align: center;
+.home__heading {
   color: #fff;
+  font-size: 2.5rem;
+  font-weight: 100;
 }
 
-.hero__heading span {
+.home__heading span {
   display: block;
   margin-bottom: 8px;
 }
 
-.hero__img {
+.home__img {
   max-width: 150px;
 }
 
-.hero__btn {
-  color: #000;
+.home__btn {
   background-color: #fff;
-  width: 350px;
+  border-radius: 10px;
+  color: #000;
   display: inline-block;
-  text-align: center;
-  padding: 18px;
   font-size: 1.5rem;
   font-weight: 300;
+  padding: 18px;
+  text-align: center;
   text-transform: uppercase;
-  border-radius: 10px;
+  width: 350px;
 }
 
 /* || GAME (/pages/game.css) */
 
 .game {
-  background-color: #e5e5e5;
+  background-color: hsl(0, 0%, 90%);
   text-align: center;
 }
 
-.computer-side__choice {
+.game > .container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 10px 0 30px;
+}
+
+.section-top {
+  flex: 40% 1 0;
+}
+
+.computer-choice__img {
   transform: rotate(180deg);
 }
 
-.info__heading {
+.h-main {
   font-size: 2.7rem;
   text-transform: uppercase;
 }
 
-.stats__heading {
+.stats__info {
   font-size: 2rem;
-  text-transform: uppercase;
   margin-bottom: 5px;
+  text-transform: uppercase;
 }
 
 .stats__btn {
   background-color: #9c27b0;
-  color: #fff;
-  padding: 18px 57px;
   border-radius: 10px;
+  color: #fff;
   font-size: 1.3rem;
-  text-transform: uppercase;
   font-weight: 100;
+  padding: 18px 57px;
+  text-transform: uppercase;
 }
 
-.player-side__heading {
+.section-bottom {
+  align-items: flex-end;
+  display: flex;
+  flex: 40% 1 0;
+  justify-content: center;
+}
+
+.computer-choice {
+  height: 100%;
+}
+
+.computer-choice__img,
+.player-choice__img {
+  width: 111px;
+}
+
+.options__heading {
   font-weight: 300;
   margin-bottom: 18px;
 }
 
 .weapons {
-  display: flex;
   align-items: flex-end;
+  display: flex;
   gap: 36px;
+  justify-content: center;
+}
+
+.weapon-item {
+  transition: transform ease 0.2s;
+}
+
+.weapon-item:hover {
+  transform: scale(1.2);
 }
 
 .weapons__img {
   width: 96px;
 }
 
-.computer-side__choice,
-.player-side__choice {
-  width: 111px;
-}
-
 /* || Utilities  */
 
 .container {
-  width: 700px;
   margin: 0 auto;
+  width: 400px;
 }
