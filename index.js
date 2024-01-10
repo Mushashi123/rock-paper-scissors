@@ -7,20 +7,14 @@ let paperRegex = /paper/i;
 let scissorRegex = /scissor/i;
 
 function getComputersChoice() {
+  const weapons = ["rock", "paper", "scissor"];
   // returns random number between 0 - 3
   let choice = Math.trunc(Math.random() * 3);
 
   //   each number between 0 - 3 is mapped with rock, paper and scissor
   //   the random number determines which options gets returned
   // no break is used cause return exits the function itself
-  switch (choice) {
-    case 0:
-      return "rock";
-    case 1:
-      return "paper";
-    case 2:
-      return "scissor";
-  }
+  return weapons[choice];
 }
 
 function getUsersChoice() {
