@@ -4,9 +4,9 @@
 /* || General Styles  */
 
 :root {
-  --FONT: "Roboto", sans-serif;
   --COLOR-PRIMARY: #9c27b0;
   --COLOR-SECONDARY: #e5e5e5;
+  --FONT: "Roboto", sans-serif;
 }
 
 html {
@@ -29,17 +29,24 @@ button {
 
 /* || Utilities  */
 
+.container {
+  height: 100vh;
+  margin: 0 auto;
+  max-width: 600px;
+  width: 90%; /*on smaller screen it creates horizontal space*/
+}
+
 /* || Breakpoints */
 /* NOTE: mobile first responsive design scheme is used  */
 
-/* tablet devices  */
-@media (min-width: 576px) {
+/* small screens */
+@media (min-width: 425px) {
 }
 
-/* desktop devices  */
-@media (min-width: 992px) {
+/* medium screens  */
+@media (min-width: 768px) {
 }
 
-/* larger devices  */
-@media (min-width: 1200px) {
+/* larger screens  */
+@media (min-width: 1024px) {
 }
