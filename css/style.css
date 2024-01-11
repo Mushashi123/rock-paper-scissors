@@ -1,0 +1,45 @@
+/* || Google fonts  */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+
+/* || General Styles  */
+
+:root {
+  --FONT: "Roboto", sans-serif;
+  --COLOR-PRIMARY: #9c27b0;
+  --COLOR-SECONDARY: #e5e5e5;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  border: none;
+}
+
+/* || Utilities  */
+
+/* || Breakpoints */
+/* NOTE: mobile first responsive design scheme is used  */
+
+/* tablet devices  */
+@media (min-width: 576px) {
+}
+
+/* desktop devices  */
+@media (min-width: 992px) {
+}
+
+/* larger devices  */
+@media (min-width: 1200px) {
+}
