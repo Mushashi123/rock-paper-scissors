@@ -13,6 +13,10 @@ html {
   box-sizing: border-box;
 }
 
+body {
+  font-family: var(--FONT);
+}
+
 * {
   box-sizing: inherit;
   margin: 0;
@@ -25,15 +29,58 @@ a {
 
 button {
   border: none;
+  cursor: pointer;
+}
+
+/* || Hero  */
+
+.hero {
+  background-color: var(--COLOR-PRIMARY);
+}
+
+.hero__container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  justify-content: space-between;
+  padding: 27px 0;
+  text-align: center;
+}
+
+.hero__img {
+  max-width: 145px;
+  width: 100%; /*for responsive image if width is less than max-width*/
+}
+
+.hero__heading {
+  font-size: clamp(1.5rem, 16vw, 2.3rem); /*responsive font*/
+  font-weight: 100;
+  color: white;
+}
+
+.hero__heading span {
+  display: block;
+}
+
+.hero__btn {
+  background-color: #fff;
+  border-radius: 10px;
+  color: #000;
+  font-size: 1.1rem;
+  font-weight: 300;
+  max-width: 245px;
+  padding: 17px;
+  width: 100%;
 }
 
 /* || Utilities  */
 
 .container {
-  height: 100vh;
   margin: 0 auto;
   max-width: 600px;
-  width: 90%; /*on smaller screen it creates horizontal space*/
+  min-height: 100vh;
+  width: 80%; /*on smaller screen it creates horizontal space*/
 }
 
 /* || Breakpoints */
@@ -41,6 +88,18 @@ button {
 
 /* small screens */
 @media (min-width: 425px) {
+  .hero__heading {
+    font-size: 3rem;
+  }
+
+  .hero__heading span {
+    margin-bottom: 3px;
+  }
+
+  .hero__btn {
+    max-width: 260px;
+    padding: 19px;
+  }
 }
 
 /* medium screens  */
@@ -49,4 +108,7 @@ button {
 
 /* larger screens  */
 @media (min-width: 1024px) {
+  .hero__img {
+    max-width: 155px;
+  }
 }
