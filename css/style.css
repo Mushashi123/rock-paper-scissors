@@ -30,6 +30,7 @@ a {
 button {
   border: none;
   cursor: pointer;
+  background-color: transparent;
 }
 
 /* || Hero  */
@@ -74,6 +75,64 @@ button {
   width: 100%;
 }
 
+/* || Game  */
+
+.wrapper {
+  background-color: var(--COLOR-SECONDARY);
+}
+
+.game {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  justify-content: space-between;
+  min-height: 100vh;
+  padding: 15px 0;
+  text-align: center;
+}
+
+.game__heading {
+  font-size: clamp(1.2rem, 8vw, 2.4rem);
+  font-weight: 800;
+}
+
+.hand-img {
+  max-width: 105px;
+  width: 100%;
+}
+
+.computer__img {
+  transform: rotate(180deg);
+}
+
+.stats__info {
+  font-size: clamp(1.4rem, 5vw, 2rem);
+  font-weight: 800;
+  margin-bottom: 5px;
+}
+
+.options__heading {
+  font-size: clamp(1rem, 6vw, 1.3rem);
+  font-weight: 300;
+  margin-bottom: 12px;
+}
+
+.weapons {
+  align-items: baseline;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: center;
+}
+
+.weapons__img {
+  transition: all 0.2s ease;
+}
+
+.weapons__img:hover {
+  transform: scale(1.2);
+}
+
 /* || Utilities  */
 
 .container {
@@ -83,11 +142,26 @@ button {
   width: 80%; /*on smaller screen it creates horizontal space*/
 }
 
+.btn {
+  border-radius: 10px;
+  color: #000;
+  font-size: clamp(0.8rem, 3vw, 1.1rem);
+  font-weight: 100;
+  padding: 0.8em 2.6em;
+}
+
+.btn--primary {
+  background-color: var(--COLOR-PRIMARY);
+  color: white;
+}
+
 /* || Breakpoints */
 /* NOTE: mobile first responsive design scheme is used  */
 
 /* small screens */
 @media (min-width: 425px) {
+  /* (small screen) Hero   */
+
   .hero__heading {
     font-size: 3rem;
   }
@@ -100,14 +174,38 @@ button {
     max-width: 260px;
     padding: 19px;
   }
+
+  /* (Small screen) Game  */
+
+  .weapons {
+    gap: 30px;
+  }
+
+  .weapons__img {
+    width: 75px;
+  }
+
+  .options__heading {
+    margin-bottom: 1em;
+  }
 }
 
 /* medium screens  */
 @media (min-width: 768px) {
+  /* (Medium screen) Game  */
+
+  .options__heading {
+    margin-bottom: 1.5em;
+  }
+
+  .weapons__img {
+    width: 100px;
+  }
 }
 
 /* larger screens  */
 @media (min-width: 1024px) {
+  /* (Larger screen) Hero  */
   .hero__img {
     max-width: 155px;
   }
