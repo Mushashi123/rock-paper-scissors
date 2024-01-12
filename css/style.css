@@ -91,6 +91,19 @@ button {
   text-align: center;
 }
 
+/* since top bottom and center are direct child of game */
+/* top and bottom is given a fixed flex basis so that the animation wont cause other item to move  */
+.game__top {
+  flex: 0 0 40vh;
+}
+
+.game__bottom {
+  align-items: flex-end;
+  display: flex;
+  flex: 0 1 40vh;
+  justify-content: center;
+}
+
 .game__heading {
   font-size: clamp(1.2rem, 8vw, 2.4rem);
   font-weight: 800;
