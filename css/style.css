@@ -86,7 +86,7 @@ button {
   flex-direction: column;
   gap: 15px;
   justify-content: space-between;
-  min-height: 100vh;
+  height: 100vh;
   padding: 15px 0;
   text-align: center;
 }
@@ -95,6 +95,10 @@ button {
 /* top and bottom is given a fixed flex basis so that the animation wont cause other item to move  */
 .game__top {
   flex: 0 0 40vh;
+}
+
+.game__top--shrink {
+  flex-shrink: 1;
 }
 
 .game__bottom {
@@ -151,7 +155,7 @@ button {
 .container {
   margin: 0 auto;
   max-width: 600px;
-  min-height: 100vh;
+  min-height: 100vh; /*we dont want any scrool bars*/
   width: 80%; /*on smaller screen it creates horizontal space*/
 }
 

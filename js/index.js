@@ -7,6 +7,7 @@ const COMPUTER = "computer";
 
 // || DOM element node selection
 const computer = document.querySelector(".computer");
+const gameTop = document.querySelector(".game__top");
 const gameCenter = document.querySelector(".game__center");
 const gameBottom = document.querySelector(".game__bottom");
 
@@ -123,6 +124,11 @@ weapons.addEventListener("click", (e) => {
 });
 
 function changeUI(winner, usersChoice) {
+  // || change .game__top
+  // - the flex shrink for game_top during animation is running is 0 cause, if it shrinks it moves the container and entire items moves
+  // - but once the animation stops, it shall be allowed to shrink to make sure .gamt__top and .gameBottom are equally shrinked
+  gameTop.classList.add("game__top--shrink");
+
   //|| change .game__center section
 
   let statsMessage = ``;
