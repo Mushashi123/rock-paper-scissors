@@ -18,15 +18,15 @@ const weapons = document.querySelector(".weapons");
 // paper --> index[1]
 // scissor--> index[2]
 const images = [
-  "/assets/images/hands/rock.svg",
-  "/assets/images/hands/paper.svg",
-  "/assets/images/hands/scissor.svg",
+  "../assets/images/hands/rock.svg",
+  "../assets/images/hands/paper.svg",
+  "../assets/images/hands/scissor.svg",
 ];
 
 const weaponOptionImages = [
-  "/assets/images/options/rock.svg",
-  "/assets/images/options/paper.svg",
-  "/assets/images/options/scissor.svg",
+  "../assets/images/options/rock.svg",
+  "../assets/images/options/paper.svg",
+  "../assets/images/options/scissor.svg",
 ];
 
 //preload images for flickering animation
