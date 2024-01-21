@@ -1,6 +1,12 @@
 # rock-paper-scissors
 
-This is a simple rock-paper-scissor game created using JS and HTML only.
-No interactivity or css styles are applied.
+This project is a rock paper scissor game. It's built using HTML, CSS and JS.
+No additional library is used.
 
-Input and Output is done from promt and alert box.
+## UI/UX design
+
+UI/UX design is reffered from [Figma Community](https://www.figma.com/community/file/1010460624388193913)
+
+### Link to live code
+
+You can visit the live preview of the project [here](https://mushashi123.github.io/rock-paper-scissors/).
