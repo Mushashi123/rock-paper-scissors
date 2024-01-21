@@ -10,6 +10,7 @@ const computer = document.querySelector(".computer");
 const gameTop = document.querySelector(".game__top");
 const gameCenter = document.querySelector(".game__center");
 const gameBottom = document.querySelector(".game__bottom");
+const weapons = document.querySelector(".weapons");
 
 // || FLICKERING HAND ANIMATION
 // note : the order of array item matters:
@@ -20,6 +21,12 @@ const images = [
   "/assets/images/hands/rock.svg",
   "/assets/images/hands/paper.svg",
   "/assets/images/hands/scissor.svg",
+];
+
+const weaponOptionImages = [
+  "/assets/images/options/rock.svg",
+  "/assets/images/options/paper.svg",
+  "/assets/images/options/scissor.svg",
 ];
 
 //preload images for flickering animation
@@ -49,6 +56,10 @@ const computerImgs = images.map((imageLink, index) => {
   return computerImg;
 });
 
+function startGame() {
+  weapons.addEventListener("click", (e) => evaluateGame(e, intervalId));
+}
+
 // flickering image animation
 function computerThinking() {
   // change images on every interval with random images
@@ -66,13 +77,7 @@ function computerThinking() {
   }, 50);
 }
 
-const intervalId = computerThinking();
-
-// || USER PICKS AN OPTION
-
-const weapons = document.querySelector(".weapons");
-
-weapons.addEventListener("click", (e) => {
+function evaluateGame(e, intervalId) {
   // dont evaluate the game if user clicked elsewhere
   if (!e.target.dataset.weapon) {
     return;
@@ -121,7 +126,7 @@ weapons.addEventListener("click", (e) => {
       console.log("Error occured");
       return;
   }
-});
+}
 
 function changeUI(winner, usersChoice) {
   // || change .game__top
@@ -173,6 +178,7 @@ function createStatsComponent(statsMessage = "") {
   playAgainBtn.classList.add("btn--primary");
   playAgainBtn.id = "play-again-btn";
   playAgainBtn.textContent = "PLAY AGAIN";
+  playAgainBtn.addEventListener("click", restartGame);
 
   stats.appendChild(statsInfo);
   stats.appendChild(playAgainBtn);
@@ -195,3 +201,92 @@ function createUserComponent(usersChoice) {
   user.appendChild(userImg);
   return user;
 }
+
+function restartGame(e) {
+  //reset the UI
+  // || .game__center
+  while (gameCenter.firstChild) {
+    gameCenter.removeChild(gameCenter.firstChild);
+  }
+
+  gameCenter.appendChild(createGameHeadingComponent());
+
+  // || .game__bottom
+
+  while (gameBottom.firstChild) {
+    gameBottom.removeChild(gameBottom.firstChild);
+  }
+
+  gameBottom.appendChild(createOptionsComponent());
+
+  //replay the game
+  intervalId = computerThinking();
+}
+
+function createOptionsComponent() {
+  const options = document.createElement("div");
+  const optionsHeading = document.createElement("h3");
+  const weapons = document.createElement("div");
+  const weaponItemRock = document.createElement("button");
+  const weaponItemPaper = document.createElement("button");
+  const weaponItemScissor = document.createElement("button");
+  const weaponImgRock = document.createElement("img");
+  const weaponImgPaper = document.createElement("img");
+  const weaponImgScissor = document.createElement("img");
+  // note : order of items maatter
+  const weaponItems = [weaponItemRock, weaponItemPaper, weaponItemScissor];
+  const weaponImages = [weaponImgRock, weaponImgPaper, weaponImgScissor];
+
+  options.classList.add("options");
+  optionsHeading.classList.add("options__heading");
+  optionsHeading.textContent = `PICK AN OPTION:`;
+  weapons.classList.add("weapons");
+  weaponItems.forEach((weaponItem, index) => {
+    weaponItem.type = "button";
+    weaponItem.classList.add("weapon__items");
+  });
+  weaponImages.forEach((weaponImage, index) => {
+    switch (index) {
+      case 0:
+        weaponImage.src = weaponOptionImages[0];
+        weaponImage.alt = ROCK;
+        weaponImage.dataset.weapon = ROCK;
+        break;
+      case 1:
+        weaponImage.src = weaponOptionImages[1];
+        weaponImage.alt = PAPER;
+        weaponImage.dataset.weapon = PAPER;
+        break;
+      case 2:
+        weaponImage.src = weaponOptionImages[2];
+        weaponImage.alt = SCISSOR;
+        weaponImage.dataset.weapon = SCISSOR;
+        break;
+    }
+
+    weaponImage.classList.add("weapons__img");
+  });
+
+  // append em
+  weaponItems.forEach((weaponItem, index) => {
+    weaponItem.appendChild(weaponImages[index]);
+    weapons.appendChild(weaponItem);
+  });
+  weapons.addEventListener("click", (e) => evaluateGame(e, intervalId));
+
+  options.appendChild(optionsHeading);
+  options.appendChild(weapons);
+
+  return options;
+}
+
+function createGameHeadingComponent() {
+  const gameHeading = document.createElement("h1");
+  gameHeading.classList.add("game__heading");
+  gameHeading.textContent = `LET'S PLAY`;
+  return gameHeading;
+}
+
+let intervalId = computerThinking();
+
+startGame();
